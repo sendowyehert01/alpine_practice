@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
+  <title>Lesson 2</title>
+</head>
+<body>
+  <!-- <div x-data="{ message: ''}"> -->
+  <div x-data="{ first: 0, second: 0}">
+    <!-- <h1 x-text="message"></h1> -->
+    <!-- Long method -->
+        <!-- <input type="text" x-bind:value="message"> -->
+    <!-- Short Method -->
+        <!-- <input type="text" x-model="message"> -->
+        <!-- Simple Calculator -->
+        <input type="text" x-model.number="first">
+        +
+        <input type="text" x-model.number="second">
+        =
+        <output x-text="first + second"></output>
+
+    <!-- <button @click = "message = 'Changed!'">Click Me</button> -->
+  </div>
+</body>
+</html>
