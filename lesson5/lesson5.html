@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js"
+      defer
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/script.js"></script>
+    <title>Document</title>
+  </head>
+  <body class="p-10 mx-auto max-w-lg">
+    <div class="bg-gray-300 px-10 py-6 rounded" x-data="taskApp()">
+      <form action="" @submit.prevent="submit">
+        <input
+          type="text"
+          x-model="newTask"
+          name="newTask"
+          class="w-full px-1"
+          id=""
+          placeholder="Go to the market..."
+        />
+      </form>
+
+      <ul class="list-disc mt-3">
+        <template x-for="(task, index) in userDatas" :key="index">
+          <li>
+            <input type="checkbox" x-model="task.completed" />
+            <span
+              x-text="task.body"
+              :class="{ 'line-through' : task.completed }"
+            ></span>
+          </li>
+        </template>
+      </ul>
+    </div>
+  </body>
+</html>

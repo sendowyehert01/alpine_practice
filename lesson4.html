@@ -1,45 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <title>Lesson 4</title>
-</head>
-<body class="p-10 max-w-lg mx-auto">
-  <form action="" x-data="{
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js"
+      defer
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Lesson 4</title>
+  </head>
+  <body class="p-10 max-w-lg mx-auto">
+    <form
+      action=""
+      x-data="{
                               form: { name: '' },
+
+                              user : null,
 
                               submit() {
                                 fetch('https://reqres.in/api/users', {
                                   method: 'POST',
-                                  headers: { 'Accept': 'application/json'},
+                                  headers: { 'Content-Type': 'application/json'},
                                   body: JSON.stringify(this.form)
                                 })
-                                .then((response) => {
-                                  response.json();
-                                }).then(console.log);
-                              }       
+                                .then(res => res.json())
+                                .then(user => this.user = user);
+                              } 
                           }"
-                          @submit.prevent="submit"
-                    >
-    <div class="mb-6">
-      <label  for="name" 
-              class="block mb-2 uppercase font-bold text-xs text-gray-700"
-              >
-              Name
-      </label>
-      <input type="text"
-             class="border border-gray-400 p-2 w-full"
-             name="name"
-             id="name"
-             x-model="form.name"
-             required
-             >
-    </div>
-    <h1 x-text="form.name"></h1>
-  </form>
+      @submit.prevent="submit"
+    >
+      <div class="mb-6">
+        <label
+          for="name"
+          class="block mb-2 uppercase font-bold text-xs text-gray-700"
+        >
+          Name
+        </label>
+        <input
+          type="text"
+          class="border border-gray-400 p-2 w-full"
+          name="name"
+          id="name"
+          x-model="form.name"
+          required
+        />
 
-</body>
+        <template x-if="user">
+          <div
+            x-text="'The user ' + user.name + ' was created at ' + user.createdAt"
+          ></div>
+        </template>
+      </div>
+      <h1 x-text="form.name"></h1>
+    </form>
+  </body>
 </html>

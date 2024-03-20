@@ -1,36 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <title>Document</title>
-</head>
-<body>
-  <!-- <div x-data="{ show: false }">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js"
+      defer
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <div x-data="{ show: false }">
     <h1 x-show="show">Hello World</h1>
     <button @click="show = ! show" x-text="show ? 'Hide' : 'Show'"> Click Me</button>
   </div> -->
 
-  <div x-data="{ currentTab: 'first' }">
-    <button @click="currentTab = 'first'" :class="{ 'text-blue-700 font-semibold' : currentTab === 'first'} ">First</button>
-    <button @click="currentTab = 'second'" :class="{ 'text-blue-700 font-semibold' : currentTab === 'second'} ">Second</button>
-    <button @click="currentTab = 'third'" :class="{ 'text-blue-700 font-semibold' : currentTab === 'third'} ">Third</button>
+    <div x-data="{ currentTab: 'first' }">
+      <button
+        @click="currentTab = 'first'"
+        :class="{ 'text-blue-700 font-semibold' : currentTab === 'first'} "
+      >
+        First
+      </button>
+      <button
+        @click="currentTab = 'second'"
+        :class="{ 'text-blue-700 font-semibold' : currentTab === 'second'} "
+      >
+        Second
+      </button>
+      <button
+        @click="currentTab = 'third'"
+        :class="{ 'text-blue-700 font-semibold' : currentTab === 'third'} "
+      >
+        Third
+      </button>
 
-    <div style="border: 1px dotted grey; padding: 1rem; margin-top: 1rem;">
-      <div x-show="currentTab === 'first'">
-        <p>First Tab</p>
-      </div>
-  
-      <div x-show="currentTab === 'second'">
-        <p>Second Tab</p>
-      </div>
-  
-      <div x-show="currentTab === 'third'">
-        <p>Third Tab</p>
+      <div style="border: 1px dotted grey; padding: 1rem; margin-top: 1rem">
+        <div x-show="currentTab === 'first'">
+          <p>First Tab</p>
+        </div>
+
+        <div x-show="currentTab === 'second'">
+          <p>Second Tab</p>
+        </div>
+
+        <div x-show="currentTab === 'third'">
+          <p>Third Tab</p>
+        </div>
       </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>
